@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food, LLC - Menu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+    }
+    header {
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    .menu-button {
+      background: #444;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      position: relative;
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      z-index: 1000;
+    }
+    .dropdown a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #333;
+      border-bottom: 1px solid #ccc;
+    }
+    .dropdown a:last-child {
+      border-bottom: none;
+    }
+    .dropdown a:hover {
+      background: #f4f4f4;
+    }
+    .container {
+      padding: 20px;
+    }
+    .menu-section {
+      background: #eaeaea;
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    .menu-section h2 {
+      margin-top: 0;
+    }
+    .menu-section.hidden {
+      display: none;
+    }
+  </style>
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById('dropdown');
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function showItem(item) {
+      const sections = document.querySelectorAll('.menu-section');
+      sections.forEach(section => {
+        if (section.id === item) {
+          section.classList.remove('hidden');
+        } else {
+          section.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Food, LLC</h1>
+    <button class="menu-button" onclick="toggleDropdown()">Menu</button>
+    <div class="dropdown" id="dropdown">
+      <a href="#" onclick="showItem('chicken')">Chicken</a>
+      <a href="#" onclick="showItem('sushi')">Sushi</a>
+      <a href="#" onclick="showItem('beef')">Beef</a>
+    </div>
+  </header>
+  <div class="container">
+    <div class="menu-section hidden" id="chicken">
+      <h2>Chicken</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </div>
+    <div class="menu-section hidden" id="sushi">
+      <h2>Sushi</h2>
+      <p>
+        Sushi is a traditional Japanese dish made of vinegared rice accompanied by a variety of ingredients such as raw fish, vegetables, and seaweed.
+      </p>
+    </div>
+    <div class="menu-section hidden" id="beef">
+      <h2>Beef</h2>
+      <p>
+        Beef is a popular meat product that comes from cattle. It is rich in protein and can be prepared in numerous ways, including grilling, roasting, or stewing.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
